@@ -1,0 +1,7 @@
+<launch>
+  <arg name="vica_detect" />
+  <arg name="gui" default="true" />
+ 
+ 
+
+</launch>

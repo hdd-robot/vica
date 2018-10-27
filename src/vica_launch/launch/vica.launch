@@ -1,0 +1,11 @@
+<launch>
+  	<arg name="vica_launch" />
+  	<arg name="gui" default="true" />
+  
+  	<include file="$(find vica_robot_gazebo)/launch/vica_robot_gazebo.launch"/>
+	<include file="$(find vica_robot)/launch/vica_robot.launch"/>
+	<include file="$(find vica_detect)/launch/vica_detect.launch"/>
+	
+
+
+</launch>

@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<robot name="ubot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:include filename="$(find vica_robot)/urdf/robot.gazebo" />
+	<xacro:include filename="$(find vica_robot)/urdf/materials.xacro" />
+	<xacro:include filename="$(find vica_robot)/urdf/macros.xacro" />
+
+	<link name="base_link">
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0.01" />
+			<geometry>
+				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/base.stl" />
+			</geometry>
+
+			<material name="Yellow">
+				<color rgba="1 1 0 1" />
+			</material>
+		</visual>
+
+
+		<collision>
+			<origin rpy="0 0 0" xyz="0 0 0.01" />
+			<geometry>
+				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/base.stl" />
+			</geometry>
+		</collision>
+
+		<inertial>
+			<mass value="5.76" />
+			<inertia ixx="0.88" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="0.88" />
+		</inertial>
+
+
+		<visual name='caster_visual_front'>
+			<origin xyz="-0.135 0 0.01" rpy=" 0 0 0" />
+			<geometry>
+				<sphere radius="0.01" />
+			</geometry>
+		</visual>
+
+		<collision name='caster_collision_front'>
+			<origin xyz="-0.135 0 0.0325" rpy=" 0 0 0" />
+			<geometry>
+				<sphere radius="0.03245" />
+			</geometry>
+			<surface>
+				<friction>
+					<ode>
+						<mu>0</mu>
+						<mu2>0</mu2>
+						<slip1>1.0</slip1>
+						<slip2>1.0</slip2>
+					</ode>
+				</friction>
+			</surface>
+		</collision>
+
+		<visual name='caster_visual_back'>
+			<origin xyz="0.135 0 0.01" rpy=" 0 0 0" />
+			<geometry>
+				<sphere radius="0.01" />
+			</geometry>
+		</visual>
+
+		<collision name='caster_collision_back'>
+			<origin xyz="0.135 0 0.0325" rpy=" 0 0 0" />
+			<geometry>
+				<sphere radius="0.03245" />
+			</geometry>
+			<surface>
+				<friction>
+					<ode>
+						<mu>0</mu>
+						<mu2>0</mu2>
+						<slip1>1.0</slip1>
+						<slip2>1.0</slip2>
+					</ode>
+				</friction>
+			</surface>
+		</collision>
+
+	</link>
+
+
+	<link name="r_wheel">
+		<visual>
+			<origin rpy="0 0 1.58" xyz="0 0 0" />
+			<geometry>
+				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/rwheel.stl" />
+			</geometry>
+
+			<material name="Blue">
+				<color rgba="0 1 1 1" />
+			</material>
+		</visual>
+
+
+		<collision>
+			<origin rpy="0 0 1.58" xyz="0 0 0" />
+			<geometry>
+				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/rwheel.stl" />
+			</geometry>
+			<surface>
+				<friction>
+					<ode>
+						<mu>1000000</mu>
+						<mu2>100</mu2>
+						<slip1>0</slip1>
+						<slip2>0</slip2>
+					</ode>
+				</friction>
+			</surface>
+		</collision>
+
+		<inertial>
+			<mass value="0.181" />
+			<cylinder_inertia m="5" r="0.1" h="0.05" />
+			<inertia ixx="0.89" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="0.89" />
+		</inertial>
+
+	</link>
+
+	<link name="l_wheel">
+		<visual>
+			<origin rpy="0 0 1.58" xyz="0 0 0" />
+			<geometry>
+				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/lwheel.stl" />
+			</geometry>
+
+			<material name="Blue">
+				<color rgba="0 1 1 1" />
+			</material>
+
+		</visual>
+
+		<collision>
+			<origin rpy="0 0 1.58" xyz="0 0 0" />
+			<geometry>
+				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/lwheel.stl" />
+			</geometry>
+			<surface>
+				<friction>
+					<ode>
+						<mu>1000000</mu>
+						<mu2>100</mu2>
+						<slip1>0</slip1>
+						<slip2>0</slip2>
+					</ode>
+				</friction>
+			</surface>
+		</collision>
+
+		<inertial>
+			<mass value="0.181" />
+			<cylinder_inertia m="5" r="0.1" h="0.05" />
+			<inertia ixx="0.88" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="0.88" />
+		</inertial>
+
+	</link>
+
+
+
+	<link name="kinect">
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0" />
+			<geometry>
+				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/kinect.stl" />
+			</geometry>
+			<material name="Red">
+				<color rgba="1 0 0 1" />
+			</material>
+		</visual>
+
+
+
+		<collision>
+			<geometry>
+				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/kinect.stl" />
+			</geometry>
+		</collision>
+
+		<inertial>
+			<mass value="0.681" />
+			<inertia ixx="0.89" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="0.89" />
+		</inertial>
+
+	</link>
+
+	<link name="rplidar">
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0" />
+			<geometry>
+				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/rplidar.stl" />
+			</geometry>
+
+			<material name="Red">
+				<color rgba="1 0 0 1" />
+			</material>
+		</visual>
+
+
+		<collision>
+			<geometry>
+				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/rplidar.stl" />
+			</geometry>
+		</collision>
+
+		<inertial>
+			<mass value="0.681" />
+			<inertia ixx="0.89" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="0.89" />
+		</inertial>
+
+	</link>
+
+	<joint name="r_wheel_joint" type="continuous">
+		<parent link="base_link" />
+		<child link="r_wheel" />
+		<origin xyz="0 -0.15 0.0325" rpy="0 0 1.58" />
+	</joint>
+
+	<joint name="l_wheel_joint" type="continuous">
+		<parent link="base_link" />
+		<child link="l_wheel" />
+		<origin xyz="0 0.15 0.0325" rpy="0 0 1.58" />
+	</joint>
+
+	<joint name="kinect_joint" type="fixed">
+		<parent link="base_link" />
+		<child link="kinect" />
+		<origin xyz="0.055 -0.02 0.147" rpy="0 0 0" />
+	</joint>
+
+	<joint name="rplidar_joint" type="fixed">
+		<parent link="base_link" />
+		<child link="rplidar" />
+		<origin xyz="-0.06 0.033 0.238" rpy="1.58 0 0" />
+	</joint>
+
+
+</robot>
