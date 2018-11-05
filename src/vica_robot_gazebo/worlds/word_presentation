@@ -107,7 +107,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/workspace_ros/src/robot_model/meshes/base.stl</uri>
+              <uri>/home/ros/workspace_vica/src/vica_robot/meshes/base.stl</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -171,7 +171,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/workspace_ros/src/robot_model/meshes/kinect.stl</uri>
+              <uri>/home/ros/workspace_vica/src/vica_robot/meshes/kinect.stl</uri>
             </mesh>
           </geometry>
           <surface>
@@ -193,7 +193,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/workspace_ros/src/robot_model/meshes/rplidar.stl</uri>
+              <uri>/home/ros/workspace_vica/src/vica_robot/meshes/rplidar.stl</uri>
             </mesh>
           </geometry>
           <surface>
@@ -215,7 +215,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/workspace_ros/src/robot_model/meshes/base.stl</uri>
+              <uri>/home/ros/workspace_vica/src/vica_robot/meshes/base.stl</uri>
             </mesh>
           </geometry>
         </visual>
@@ -240,7 +240,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/workspace_ros/src/robot_model/meshes/kinect.stl</uri>
+              <uri>/home/ros/workspace_vica/src/vica_robot/meshes/kinect.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -255,7 +255,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/workspace_ros/src/robot_model/meshes/rplidar.stl</uri>
+              <uri>/home/ros/workspace_vica/src/vica_robot/meshes/rplidar.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -288,7 +288,7 @@
           <plugin name='camera_controller' filename='libgazebo_ros_openni_kinect.so'>
             <alwaysOn>true</alwaysOn>
             <updateRate>10.0</updateRate>
-            <cameraName>camera</cameraName>
+            <cameraName>vica_robot/sensor/kinect</cameraName>
             <frameName>kinect_real_pos</frameName>
             <imageTopicName>rgb/image_raw</imageTopicName>
             <depthImageTopicName>depth/image_raw</depthImageTopicName>
@@ -339,7 +339,7 @@
           </ray>
           <plugin name='gazebo_ros_head_hokuyo_controller' filename='libgazebo_ros_gpu_laser.so'>
             <alwaysOn>true</alwaysOn>
-            <topicName>/robot/laser/scan</topicName>
+            <topicName>vica_robot/sensor/laser/scan</topicName>
             <frameName>rplidar_real_pos</frameName>
             <robotNamespace>/</robotNamespace>
           </plugin>
@@ -366,7 +366,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/workspace_ros/src/robot_model/meshes/lwheel.stl</uri>
+              <uri>/home/ros/workspace_vica/src/vica_robot/meshes/lwheel.stl</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -388,7 +388,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/workspace_ros/src/robot_model/meshes/lwheel.stl</uri>
+              <uri>/home/ros/workspace_vica/src/vica_robot/meshes/lwheel.stl</uri>
             </mesh>
           </geometry>
         </visual>
@@ -431,7 +431,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/workspace_ros/src/robot_model/meshes/rwheel.stl</uri>
+              <uri>/home/ros/workspace_vica/src/vica_robot/meshes/rwheel.stl</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -453,7 +453,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/ros/workspace_ros/src/robot_model/meshes/rwheel.stl</uri>
+              <uri>/home/ros/workspace_vica/src/vica_robot/meshes/rwheel.stl</uri>
             </mesh>
           </geometry>
         </visual>
@@ -486,8 +486,8 @@
         <wheelSeparation>0.22</wheelSeparation>
         <wheelDiameter>0.06</wheelDiameter>
         <torque>20</torque>
-        <commandTopic>cmd_vel</commandTopic>
-        <odometryTopic>odom</odometryTopic>
+        <commandTopic>vica_robot/mobile_base_controller/cmd_vel</commandTopic>
+        <odometryTopic>vica_robot/sensor/odom</odometryTopic>
         <odometryFrame>odom</odometryFrame>
         <robotBaseFrame>base_link</robotBaseFrame>
         <robotNamespace>/</robotNamespace>
