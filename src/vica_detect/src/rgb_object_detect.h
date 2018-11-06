@@ -13,10 +13,13 @@
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 #include <image_transport/image_transport.h>
-#include <cv_bridge/cv_bridge.h>
 #include <sensor_msgs/image_encodings.h>
+//opencv
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <cv_bridge/cv_bridge.h>
+//tensorflow
+
 
 namespace vica_detect {
 
@@ -40,6 +43,7 @@ private:
 	cv_bridge::CvImagePtr cv_ptr1;
 	cv::Mat image1;
 	cv_bridge::CvImagePtr stitching_output;
+
 
 };
 

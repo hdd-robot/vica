@@ -49,7 +49,19 @@ void RGB_object_detect::showWindow(){
 }
 
 void RGB_object_detect::make_predection(){
-
+	ros::Rate loop_rate(5);
+		while (ros::ok()){
+		    if ( cv_ptr1  ){
+		       image1 = cv_ptr1->image;
+		       cv::imshow("RGB", image1);
+		       cv::waitKey(3);
+		       stitching_output = cv_ptr1;
+		       this->pub.publish(stitching_output);
+		       cv_ptr1.reset();
+		    }
+		    ros::spinOnce();
+		    loop_rate.sleep();
+		}
 
 }
 
@@ -59,7 +71,7 @@ void RGB_object_detect::make_predection(){
 int main(int argc, char **argv) {
 	ros::init(argc, argv, "vica_detect_rgb_detect");
 	vica_detect::RGB_object_detect listener;
-	listener.showWindow();
+	listener.make_predection();
 	ros::spin();
 	return 0;
 }
