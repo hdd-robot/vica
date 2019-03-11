@@ -1,0 +1,7 @@
+<launch>
+  <arg name="vica_sim" />
+  <arg name="gui" default="true" />
+  
+  <node name="get_screenshot" pkg="vica_sim" type="get_screenshot" />
+
+</launch>
