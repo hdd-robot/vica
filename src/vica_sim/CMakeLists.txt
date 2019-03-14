@@ -74,7 +74,7 @@ LINK_DIRECTORIES(/home/ros/workspace_cpp/gAgent/src_agent/build)
 
 
 
-add_executable(vica_sim src/vica_sim_node.cpp)
+add_executable(vica_sim src/vica_sim_node.cpp src/agent_model.cpp src/environment_model.cpp src/sma_img.cpp )
 
 
 add_dependencies(vica_sim ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
