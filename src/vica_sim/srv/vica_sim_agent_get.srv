@@ -1,0 +1,7 @@
+uint16 id
+---
+uint16 id
+uint16 pos_x
+uint16 pos_y
+uint16 color
+uint16 shape

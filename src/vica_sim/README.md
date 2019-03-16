@@ -15,7 +15,6 @@ Module de simulation avec SMA
 
 /vica_sim/env/gui
 
-
 /vica_sim/env/stop
 
 ### Agents

@@ -29,6 +29,18 @@ add_service_files(
    vica_sim_env_init.srv                                             
    vica_sim_env_gui.srv       
    vica_sim_env_set_size.srv 
+   vica_sim_env_stop.srv
+   vica_sim_agent_add.srv
+   vica_sim_agent_delete.srv
+   vica_sim_agent_update.srv
+   vica_sim_agent_get.srv
+   vica_sim_agent_get_list.srv
+   vica_sim_sim_get_target_pos.srv
+   vica_sim_sim_set_target_pos.srv
+   vica_sim_sim_get_robot_pos.srv
+   vica_sim_sim_start_sim.srv
+   vica_sim_sim_get_sim_result.srv
+   vica_sim_sim_reset_sim.srv
 )
 
 ## Generate actions in the 'action' folder
