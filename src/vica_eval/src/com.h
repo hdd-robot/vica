@@ -7,6 +7,8 @@
  */
 
 #include "ros/ros.h"
+#include "object_type.h"
+#include <string>
 
 //env
 #include <vica_sim/vica_sim_env_init.h>
@@ -48,7 +50,7 @@ public:
 	bool call_env_stop();
 
 	//agent
-	bool call_agent_add();
+	bool call_agent_add(object_type *obt);
 	bool call_agent_delete(int id);
 	bool call_agent_update();
 	bool call_agent_get();

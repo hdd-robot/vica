@@ -64,8 +64,9 @@ bool com::call_env_gui(const bool gui_on) {
 		ROS_INFO("Resultat GUI : %d", msg.response.res);
 	} else {
 		ROS_ERROR("Failed to call service GUI");
-		return 1;
+		return false;
 	}
+
 
 }
 
@@ -73,8 +74,31 @@ bool com::call_env_stop() {
 	vica_sim::vica_sim_env_stop msg;
 }
 
-bool com::call_agent_add() {
+bool com::call_agent_add(object_type *obt) {
 	vica_sim::vica_sim_agent_add msg;
+
+	std::cout << obt->id << std::endl;
+
+	msg.request.id		= 5;
+	msg.request.type	= obt->type;
+	msg.request.draw	= obt->draw;
+	msg.request.shape	= obt->shape;
+	msg.request.pos_x	= obt->pos_x;
+	msg.request.pos_y	= obt->pos_y;
+	msg.request.pos_z	= obt->pos_z;
+	msg.request.color	= obt->color;
+	msg.request.size_x	= obt->size_x;
+	msg.request.size_y	= obt->size_y;
+	msg.request.size_z	= obt->size_z;
+	msg.request.attr_list= "abc";
+
+	if (cli_srv_vica_sim_agent_add.call(msg)) {
+		ROS_INFO("result agent_add : %d", msg.response.res);
+	} else {
+		ROS_ERROR("Failed to call service agent_add");
+	}
+	// to do  return msg.response.res
+	return true;
 }
 
 bool com::call_agent_delete(int id) {

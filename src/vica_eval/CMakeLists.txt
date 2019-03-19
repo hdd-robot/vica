@@ -139,6 +139,7 @@ add_executable(${PROJECT_NAME}_node
 	src/vica_eval_node.cpp 
 	src/graph_calc.cpp
 	src/com.cpp
+	src/object_type.cpp
 ) 
 
 ## Rename C++ executable without prefix

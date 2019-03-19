@@ -27,6 +27,7 @@
 #include "sma_img.h"
 
 
+
 using namespace vica_sim;
 
 namespace vica_sim {
@@ -69,8 +70,8 @@ bool env_gui(vica_sim::vica_sim_env_gui::Request &req,
 	return true;
 }
 
-bool env_stop(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool env_stop(vica_sim::vica_sim_env_stop::Request &req,
+			 vica_sim::vica_sim_env_stop::Response &res) {
 
 	ROS_INFO("env_stop");
 	return true;
@@ -78,36 +79,36 @@ bool env_stop(vica_sim::vica_sim_env_gui::Request &req,
 
 //agent
 
-bool agent_add(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool agent_add(vica_sim::vica_sim_agent_add::Request &req,
+			 vica_sim::vica_sim_agent_add::Response &res) {
 
 	ROS_INFO("agent_add");
 	return true;
 }
 
-bool agent_delete(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool agent_delete(vica_sim::vica_sim_agent_delete::Request &req,
+			 vica_sim::vica_sim_agent_delete::Response &res) {
 
 	ROS_INFO("agent_delete");
 	return true;
 }
 
-bool agent_update(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool agent_update(vica_sim::vica_sim_agent_update::Request &req,
+			 vica_sim::vica_sim_agent_update::Response &res) {
 
 	ROS_INFO("agent_update");
 	return true;
 }
 
-bool agent_get(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool agent_get(vica_sim::vica_sim_agent_get::Request &req,
+			 vica_sim::vica_sim_agent_get::Response &res) {
 
 	ROS_INFO("agent_get");
 	return true;
 }
 
-bool agent_get_list(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool agent_get_list(vica_sim::vica_sim_agent_get_list::Request &req,
+			 vica_sim::vica_sim_agent_get_list::Response &res) {
 
 	ROS_INFO("agent_get_list");
 	return true;
@@ -115,46 +116,46 @@ bool agent_get_list(vica_sim::vica_sim_env_gui::Request &req,
 
 
 //sim
-bool sim_get_target_pos(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool sim_get_target_pos(vica_sim::vica_sim_sim_get_target_pos::Request &req,
+			 vica_sim::vica_sim_sim_get_target_pos::Response &res) {
 
 	ROS_INFO("sim_get_target_pos");
 	return true;
 }
 
 
-bool sim_set_target_pos(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool sim_set_target_pos(vica_sim::vica_sim_sim_set_target_pos::Request &req,
+			 vica_sim::vica_sim_sim_set_target_pos::Response &res) {
 
 	ROS_INFO("sim_set_target_pos");
 	return true;
 }
 
-bool sim_get_robot_pos(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool sim_get_robot_pos(vica_sim::vica_sim_sim_get_robot_pos::Request &req,
+			 vica_sim::vica_sim_sim_get_robot_pos::Response &res) {
 
 	ROS_INFO("sim_get_robot_pos");
 	return true;
 }
 
 
-bool sim_start_sim(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool sim_start_sim(vica_sim::vica_sim_sim_start_sim::Request &req,
+			 vica_sim::vica_sim_sim_start_sim::Response &res) {
 
 	ROS_INFO("sim_start_sim");
 	return true;
 }
 
-bool sim_get_sim_restult(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool sim_get_sim_restult(vica_sim::vica_sim_sim_get_sim_result::Request &req,
+			 vica_sim::vica_sim_sim_get_sim_result::Response &res) {
 
 	ROS_INFO("sim_get_sim_restult");
 	return true;
 }
 
 
-bool sim_reset_sim(vica_sim::vica_sim_env_gui::Request &req,
-			 vica_sim::vica_sim_env_gui::Response &res) {
+bool sim_reset_sim(vica_sim::vica_sim_sim_reset_sim::Request &req,
+			 vica_sim::vica_sim_sim_reset_sim::Response &res) {
 
 	ROS_INFO("sim_reset_sim");
 	return true;
