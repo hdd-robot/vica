@@ -27,6 +27,9 @@ int main(int argc, char *argv[]) {
 
 	//load objct from CSV
 
+	cm.call_env_init();
+
+
 	object_type *obj1 = new object_type();
 	while(obj1->load_next_object()){
 		cm.call_agent_add(obj1);

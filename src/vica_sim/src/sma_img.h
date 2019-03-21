@@ -12,6 +12,9 @@
 #include <Environnement.hpp>
 #include <Agent.hpp>
 #include <Behaviour.hpp>
+#include <string>
+#include <list>
+
 
 #include "agent_model.h"
 #include "environment_model.h"
@@ -28,7 +31,10 @@ public:
 
 	virtual ~SMA_Img();
 
-	bool add_agent();
+	bool add_agent(int id, std::string type, std::string draw,
+			std::string shape, int pos_x, int pos_y, int pos_z,
+			std::string color, int size_x, int size_y, int size_z,
+			std::string attr_list);
 	bool update_agent();
 	bool delete_agent();
 
@@ -36,8 +42,9 @@ public:
 
 	bool stop_env();
 
-private:
 
+
+	std::list<vica_agent_model*> list_agents;
 	SMA_Env sma_env;
 
 

@@ -20,13 +20,13 @@ void SMA_Env::link_attribut() {
 
 	this->link_id   ("id");
 	this->link_name ("name");
-	this->link_pos_x("x");
-	this->link_pos_y("y");
+	this->link_pos_x("posx");
+	this->link_pos_y("posy");
 	this->link_color("color");
 	this->link_size ("size");
-	this->link_size_x("size_x");
-	this->link_size_y("size_y");
-	this->link_size_z("size_z");
+	this->link_size_x("sizex");
+	this->link_size_y("sizey");
+	this->link_size_z("sizez");
 	this->link_shape("shape");
 }
 

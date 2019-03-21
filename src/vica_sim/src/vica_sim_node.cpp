@@ -28,7 +28,7 @@
 
 
 
-using namespace vica_sim;
+
 
 namespace vica_sim {
 
@@ -37,13 +37,14 @@ SMA_Img* sma = new SMA_Img();
 
 bool env_init(vica_sim::vica_sim_env_init::Request &req,
 			  vica_sim::vica_sim_env_init::Response &res) {
-//  ROS_INFO("request: action=%s, param=%s", req.action, req.param);
-//  ROS_INFO("sending back response: [%d]", 1 );
-//  res.res = 50;
-	sma->add_agent();
 
 	ROS_INFO("srv_init");
+	sma->init_env();
 
+//	sma->sma_env.map_width = 1000;
+//	sma->sma_env.map_height = 1000;
+
+	res.res = true;
 	return true;
 }
 
@@ -81,6 +82,10 @@ bool env_stop(vica_sim::vica_sim_env_stop::Request &req,
 
 bool agent_add(vica_sim::vica_sim_agent_add::Request &req,
 			 vica_sim::vica_sim_agent_add::Response &res) {
+
+
+	sma->add_agent(req.id, req.type, req.draw, req.shape, req.pos_x, req.pos_y, req.pos_z, req.color, req.size_x, req.size_y, req.size_z, req.attr_list);
+
 
 	ROS_INFO("agent_add");
 	return true;
@@ -164,12 +169,12 @@ bool sim_reset_sim(vica_sim::vica_sim_sim_reset_sim::Request &req,
 
 }
 
+
+using namespace vica_sim;
+
 int main(int argc, char *argv[]) {
 
-
-
 	//
-
 	ros::init(argc, argv, "vica_sim");
 	ros::NodeHandle n;
 
@@ -196,21 +201,13 @@ int main(int argc, char *argv[]) {
 	ros::ServiceServer sim_srv_6 = n.advertiseService("/vica_sim/sim/reset_sim"	  	, sim_reset_sim);
 
 
-
-	//sim
-
-
-
-
-	ROS_INFO("Ready to add two ints.");
-
+	ROS_INFO("VICA_SIM Start all services");
 
 	ros::spin();
 
-
 	ROS_INFO("Fin spin.");
 
-
+	delete sma;
 	return 0;
 }
 

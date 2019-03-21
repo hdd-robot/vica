@@ -45,6 +45,17 @@ com::~com() {
 
 bool com::call_env_init() {
 	vica_sim::vica_sim_env_init msg;
+	msg.request.x = 200;
+	msg.request.y = 200;
+	msg.request.timer = 1000;
+
+	if (cli_srv_vica_sim_env_init.call(msg)) {
+		ROS_INFO("Resultat call_env_init : %d", msg.response.res);
+	} else {
+		ROS_ERROR("Failed to call service call_env_init");
+		return false;
+	}
+	return true;
 }
 
 void com::call_env_get_size() {
@@ -66,7 +77,7 @@ bool com::call_env_gui(const bool gui_on) {
 		ROS_ERROR("Failed to call service GUI");
 		return false;
 	}
-
+	return true;
 
 }
 
@@ -77,9 +88,9 @@ bool com::call_env_stop() {
 bool com::call_agent_add(object_type *obt) {
 	vica_sim::vica_sim_agent_add msg;
 
-	std::cout << obt->id << std::endl;
 
-	msg.request.id		= 5;
+
+	msg.request.id		= obt->id ;
 	msg.request.type	= obt->type;
 	msg.request.draw	= obt->draw;
 	msg.request.shape	= obt->shape;
@@ -90,7 +101,7 @@ bool com::call_agent_add(object_type *obt) {
 	msg.request.size_x	= obt->size_x;
 	msg.request.size_y	= obt->size_y;
 	msg.request.size_z	= obt->size_z;
-	msg.request.attr_list= "abc";
+	msg.request.attr_list= "";
 
 	if (cli_srv_vica_sim_agent_add.call(msg)) {
 		ROS_INFO("result agent_add : %d", msg.response.res);
