@@ -68,38 +68,36 @@
 	<!-- RPLIDAR  -->
 	<gazebo reference="rplidar">
 		<sensor type="gpu_ray" name="rplidar_laser">
-			<always_on>true</always_on>
-			<pose>0 0 1 0 0 0</pose>
 			<visualize>false</visualize>
+			<pose>0 0 0 0 0 0</pose>
 			<update_rate>40</update_rate>
 			<ray>
 				<scan>
 					<horizontal>
-						<samples>2000</samples>
+						<samples>720</samples>
 						<resolution>1</resolution>
-						<min_angle>-1.570796</min_angle>
-						<max_angle>1.570796</max_angle>
+						<min_angle>-3.14159265359</min_angle>
+						<max_angle>3.14159265359</max_angle>
 					</horizontal>
 				</scan>
 				<range>
 					<min>0.10</min>
-					<max>6.0</max>
-					<resolution>0.02</resolution>
+					<max>5.0</max>
+					<resolution>0.01</resolution>
 				</range>
 				<noise>
 					<type>gaussian</type>
-					<!-- Noise parameters based on published spec for Hokuyo laser achieving 
-						"+-30mm" accuracy at range < 10m. A mean of 0.0m and stddev of 0.01m will 
-						put 99.7% of samples within 0.03m of the true reading. -->
 					<mean>0.0</mean>
 					<stddev>0.01</stddev>
 				</noise>
+				
 			</ray>
-			<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+			<plugin name="hokuyo_node" filename="libgazebo_ros_gpu_laser.so">
 				<alwaysOn>true</alwaysOn>
-				<topicName>vica_robot/sensor/laser/scan</topicName>
-				<frameName>rplidar_real_pos</frameName>
+				<topicName>/vica_robot/sensor/laser/scan</topicName>
+				<frameName>/rplidar_real_pos</frameName>
 			</plugin>
+			
 		</sensor>
 	</gazebo>
 

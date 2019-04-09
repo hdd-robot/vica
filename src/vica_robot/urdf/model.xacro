@@ -84,7 +84,7 @@
 
 	<link name="r_wheel">
 		<visual>
-			<origin rpy="0 0 1.58" xyz="0 0 0" />
+			<origin rpy="0 0 1.57079632679" xyz="0 0 0" />
 			<geometry>
 				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/rwheel.stl" />
 			</geometry>
@@ -96,7 +96,7 @@
 
 
 		<collision>
-			<origin rpy="0 0 1.58" xyz="0 0 0" />
+			<origin rpy="0 0 1.57079632679" xyz="0 0 0" />
 			<geometry>
 				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/rwheel.stl" />
 			</geometry>
@@ -122,7 +122,7 @@
 
 	<link name="l_wheel">
 		<visual>
-			<origin rpy="0 0 1.58" xyz="0 0 0" />
+			<origin rpy="0 0 1.57079632679" xyz="0 0 0" />
 			<geometry>
 				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/lwheel.stl" />
 			</geometry>
@@ -134,7 +134,7 @@
 		</visual>
 
 		<collision>
-			<origin rpy="0 0 1.58" xyz="0 0 0" />
+			<origin rpy="0 0 1.57079632679" xyz="0 0 0" />
 			<geometry>
 				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/lwheel.stl" />
 			</geometry>
@@ -188,7 +188,7 @@
 
 	<link name="rplidar">
 		<visual>
-			<origin rpy="0 0 0" xyz="0 0 0" />
+			<origin rpy="1.57079632679 0 0" xyz="0 0 -0.04" />
 			<geometry>
 				<mesh scale=".0010 .0010 .0010" filename="package://vica_robot/meshes/rplidar.stl" />
 			</geometry>
@@ -215,13 +215,13 @@
 	<joint name="r_wheel_joint" type="continuous">
 		<parent link="base_link" />
 		<child link="r_wheel" />
-		<origin xyz="0 -0.15 0.0325" rpy="0 0 1.58" />
+		<origin xyz="0 -0.15 0.0325" rpy="0 0 1.57079632679" />
 	</joint>
 
 	<joint name="l_wheel_joint" type="continuous">
 		<parent link="base_link" />
 		<child link="l_wheel" />
-		<origin xyz="0 0.15 0.0325" rpy="0 0 1.58" />
+		<origin xyz="0 0.15 0.0325" rpy="0 0 1.57079632679" />
 	</joint>
 
 	<joint name="kinect_joint" type="fixed">
@@ -233,7 +233,7 @@
 	<joint name="rplidar_joint" type="fixed">
 		<parent link="base_link" />
 		<child link="rplidar" />
-		<origin xyz="-0.06 0.033 0.238" rpy="1.58 0 0" />
+		<origin xyz="-0.06 0.033 0.28" rpy="0 0 0" />
 	</joint>
 
 

@@ -77,3 +77,22 @@ Pour lancer le tout il suffi :
 roslaunch vica_launch vica.launch
 
 ```
+
+
+# MOVE ROBOT 
+## with keybord 
+```
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/vica_robot/mobile_base_controller/cmd_vel
+```
+
+##with joystic
+
+not forget : sudo chmod a+rw /dev/input/jsX
+
+```
+roslaunch vica_joy_control joy_control.launch
+```
+
+
+
+
