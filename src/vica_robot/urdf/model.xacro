@@ -155,7 +155,6 @@
 			<cylinder_inertia m="5" r="0.1" h="0.05" />
 			<inertia ixx="0.88" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="0.88" />
 		</inertial>
-
 	</link>
 
 
@@ -170,8 +169,6 @@
 				<color rgba="1 0 0 1" />
 			</material>
 		</visual>
-
-
 
 		<collision>
 			<geometry>
