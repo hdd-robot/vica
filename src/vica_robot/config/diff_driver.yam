@@ -2,7 +2,11 @@ vica_robot_controller:
   type        : "diff_drive_controller/DiffDriveController"
   left_wheel  : 'l_wheel_joint'
   right_wheel : 'r_wheel_joint'
-  publish_rate: 20.0               # default: 50
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+  
+  
+  
+  publish_rate: 100.0               # default: 50
   pose_covariance_diagonal : [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
   twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
   
@@ -27,19 +31,33 @@ vica_robot_controller:
   linear:
     x:
       has_velocity_limits    : true
-      max_velocity           : 0.5  # m/s
-      min_velocity           : -0.1 # m/s
+      max_velocity           : 0.4  # m/s
+      min_velocity           : -0.4 # m/s
       has_acceleration_limits: true
-      max_acceleration       : 0.3  # m/s^2
-      min_acceleration       : -0.4 # m/s^2
-      has_jerk_limits        : true
-      max_jerk               : 0.01  # m/s^3
+      max_acceleration       : 0.2  # m/s^2
+      min_acceleration       : -0.2 # m/s^2
+
   angular:
     z:
       has_velocity_limits    : true
-      max_velocity           : 0.7  # rad/s
+      max_velocity           : 0.6  # rad/s
       has_acceleration_limits: true
       max_acceleration       : 0.4  # rad/s^2
-      has_jerk_limits        : true
-      max_jerk               : 0.01  # rad/s^3
 
+
+  joint_read_state_controller:
+      type: joint_state_controller/JointStateController 
+      publish_rate: 100.0
+
+  #Publish to TF directly or not
+  enable_odom_tf: true
+
+  #Name of frame to publish odometry in
+  odom_frame_id: odom
+
+  # Publish the velocity command to be executed. 
+  # It is to monitor the effect of limiters on the controller input.
+  publish_cmd: true
+
+    
+    

@@ -26,22 +26,25 @@
 		</collision>
 
 		<inertial>
-			<mass value="5.76" />
+			<mass value="20.76" />
 			<inertia ixx="0.88" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="0.88" />
 		</inertial>
 
 
+
+
+		
 		<visual name='caster_visual_front'>
-			<origin xyz="-0.135 0 0.01" rpy=" 0 0 0" />
+			<origin xyz="-0.135 0.00 0.0035" rpy="0 0 0" />
 			<geometry>
-				<sphere radius="0.012" />
+				<sphere radius="0.00339" />
 			</geometry>
 		</visual>
 
 		<collision name='caster_collision_front'>
-			<origin xyz="-0.135 0 0.0325" rpy=" 0 0 0" />
+			<origin xyz="-0.135 0.00 0.0035" rpy="0 0 0" />
 			<geometry>
-				<sphere radius="0.012" />
+				<sphere radius="0.00339" />
 			</geometry>
 			<surface>
 				<friction>
@@ -54,18 +57,20 @@
 				</friction>
 			</surface>
 		</collision>
+		
+		
 
 		<visual name='caster_visual_back'>
-			<origin xyz="0.135 0 0.01" rpy=" 0 0 0" />
+			<origin xyz="0.135 0.00 0.0035" rpy="0 0 0" />
 			<geometry>
-				<sphere radius="0.012" />
+				<sphere radius="0.00339" />
 			</geometry>
 		</visual>
 
 		<collision name='caster_collision_back'>
-			<origin xyz="0.135 0 0.0325" rpy=" 0 0 0" />
+			<origin xyz="0.135 0.00 0.0035" rpy="0 0 0" />
 			<geometry>
-				<sphere radius="0.012" />
+				<sphere radius="0.00339" />
 			</geometry>
 			<surface>
 				<friction>
@@ -78,6 +83,9 @@
 				</friction>
 			</surface>
 		</collision>
+
+
+
 
 	</link>
 
@@ -103,8 +111,8 @@
 			<surface>
 				<friction>
 					<ode>
-						<mu>100</mu>
-						<mu2>100</mu2>
+						<mu>1</mu>
+						<mu2>1</mu2>
 					</ode>
 				</friction>
 			</surface>
@@ -139,8 +147,8 @@
 			<surface>
 				<friction>
 					<ode>
-						<mu>100</mu>
-						<mu2>100</mu2>
+						<mu>1</mu>
+						<mu2>1</mu2>
 					</ode>
 				</friction>
 			</surface>
