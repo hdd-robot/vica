@@ -4,17 +4,30 @@
   <arg name="rvizconfig" default="$(find vica_robot)/rviz/urdf.rviz" />
   <!-- upload urdf -->
   
+  
   <param name="robot_description" command="$(find xacro)/xacro.py '$(find vica_robot)/urdf/model.xacro'"/>
   
   <param name="use_gui" value="$(arg gui)"/>
-
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
   	<param name="use_gui" value="False"/>
   </node>
   
+  <rosparam file="$(find vica_robot)/config/gazebo_ros_control_params.yam" command="load"/>
   
+  
+
+
+  <rosparam file="$(find vica_robot)/config/diff_driver.yam" command="load" />
+  
+  <node name="vica_robot_controller_node"  pkg="controller_manager" 
+  		type="spawner" respawn="false" output="screen" 
+  		args="vica_robot_controller"
+  />
+  
+
+
   
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 

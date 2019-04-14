@@ -165,7 +165,7 @@
           <pose frame=''>3.2818 -0.116703 0.5 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>-0.004709 -9.78112 9.78158 0.712677 -0.009414 -4.3e-05</acceleration>
-          <wrench>-0.004709 -9.78112 9.78158 0 -0 0</wrench>
+          <wrench>-0.004709 -9.78112 9.78158 0 0 0</wrench>
         </link>
       </model>
       <light name='sun'>

@@ -34,22 +34,22 @@
 		<visual name='caster_visual_front'>
 			<origin xyz="-0.135 0 0.01" rpy=" 0 0 0" />
 			<geometry>
-				<sphere radius="0.01" />
+				<sphere radius="0.012" />
 			</geometry>
 		</visual>
 
 		<collision name='caster_collision_front'>
 			<origin xyz="-0.135 0 0.0325" rpy=" 0 0 0" />
 			<geometry>
-				<sphere radius="0.03245" />
+				<sphere radius="0.012" />
 			</geometry>
 			<surface>
 				<friction>
 					<ode>
-						<mu>0</mu>
-						<mu2>0</mu2>
-						<slip1>1.0</slip1>
-						<slip2>1.0</slip2>
+		                  <mu>0</mu>
+		                  <mu2>0</mu2>
+		                  <slip1>1.0</slip1>
+		                  <slip2>1.0</slip2>
 					</ode>
 				</friction>
 			</surface>
@@ -58,22 +58,22 @@
 		<visual name='caster_visual_back'>
 			<origin xyz="0.135 0 0.01" rpy=" 0 0 0" />
 			<geometry>
-				<sphere radius="0.01" />
+				<sphere radius="0.012" />
 			</geometry>
 		</visual>
 
 		<collision name='caster_collision_back'>
 			<origin xyz="0.135 0 0.0325" rpy=" 0 0 0" />
 			<geometry>
-				<sphere radius="0.03245" />
+				<sphere radius="0.012" />
 			</geometry>
 			<surface>
 				<friction>
 					<ode>
-						<mu>0</mu>
-						<mu2>0</mu2>
-						<slip1>1.0</slip1>
-						<slip2>1.0</slip2>
+		                  <mu>0</mu>
+		                  <mu2>0</mu2>
+		                  <slip1>1.0</slip1>
+		                  <slip2>1.0</slip2>
 					</ode>
 				</friction>
 			</surface>
@@ -103,10 +103,8 @@
 			<surface>
 				<friction>
 					<ode>
-						<mu>1000000</mu>
+						<mu>100</mu>
 						<mu2>100</mu2>
-						<slip1>0</slip1>
-						<slip2>0</slip2>
 					</ode>
 				</friction>
 			</surface>
@@ -115,7 +113,7 @@
 		<inertial>
 			<mass value="0.181" />
 			<cylinder_inertia m="5" r="0.1" h="0.05" />
-			<inertia ixx="0.89" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="0.89" />
+			<inertia ixx="0.89" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="0.88" />
 		</inertial>
 
 	</link>
@@ -141,10 +139,8 @@
 			<surface>
 				<friction>
 					<ode>
-						<mu>1000000</mu>
+						<mu>100</mu>
 						<mu2>100</mu2>
-						<slip1>0</slip1>
-						<slip2>0</slip2>
 					</ode>
 				</friction>
 			</surface>
@@ -215,11 +211,40 @@
 		<origin xyz="0 -0.15 0.0325" rpy="0 0 1.57079632679" />
 	</joint>
 
+	<transmission name="r_wheel_transmission">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="r_wheel_joint">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="r_wheel_actuator">
+			<mechanicalReduction>7</mechanicalReduction>
+			<hardwareInterface>VelocityJointInterface</hardwareInterface>
+		</actuator>
+	</transmission>
+	
+
+
 	<joint name="l_wheel_joint" type="continuous">
 		<parent link="base_link" />
 		<child link="l_wheel" />
 		<origin xyz="0 0.15 0.0325" rpy="0 0 1.57079632679" />
 	</joint>
+	
+	<transmission name="l_wheel_transmission">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="l_wheel_joint">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="l_wheel_actuator">
+			<mechanicalReduction>7</mechanicalReduction>
+			<hardwareInterface>VelocityJointInterface</hardwareInterface>
+		</actuator>
+	</transmission>
+	
+	
+	
+	
+	
 
 	<joint name="kinect_joint" type="fixed">
 		<parent link="base_link" />
