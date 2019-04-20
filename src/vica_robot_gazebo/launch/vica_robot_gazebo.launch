@@ -26,11 +26,12 @@
 		output="screen" args="-urdf -param robot_description -model robot" />
 
 
+		 
 	<node pkg="tf" type="static_transform_publisher" name="kinect"
 		args="0.055 -0.02 0.137 1.58 3.14 1.58 /base_link /kinect_real_pos 10" />
 
 	<node pkg="tf" type="static_transform_publisher" name="rplidar"
 		args="0 0 0.4 0 0 0 /base_link /rplidar_real_pos 10" />
-
+ 
 
 </launch>

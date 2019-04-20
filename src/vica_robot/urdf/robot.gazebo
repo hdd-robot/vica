@@ -1,24 +1,6 @@
 <?xml version="1.0"?>
 <robot>
-	<!-- 
-	<gazebo>
-		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-			<legacyMode>true</legacyMode>
-			<alwaysOn>true</alwaysOn>
-			<updateRate>50</updateRate>
-			<leftJoint>l_wheel_joint</leftJoint>
-			<rightJoint>r_wheel_joint</rightJoint>
-			<wheelSeparation>0.22</wheelSeparation>
-			<wheelDiameter>0.06</wheelDiameter>
-			<torque>1.0</torque>
-			<commandTopic>vica_robot/mobile_base_controller/cmd_vel</commandTopic>
-			<odometryTopic>vica_robot/sensor/odom</odometryTopic>
-			<odometryFrame>odom</odometryFrame>
-			<robotBaseFrame>base_link</robotBaseFrame>
-		</plugin>
-	</gazebo>
- 	-->
- 	
+	
 	<!-- SENSOR -->
 	<gazebo reference="kinect">
 		<sensor type="depth" name="openni_camera_camera">
@@ -110,4 +92,8 @@
 			<legacyModeNS>true</legacyModeNS>
 		</plugin>
 	</gazebo>
+	
+  
+
+	
 </robot>
