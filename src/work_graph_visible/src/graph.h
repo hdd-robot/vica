@@ -15,6 +15,9 @@ class graph {
 public:
 	graph();
 	virtual ~graph();
+
+
+
 };
 
 } /* namespace vica_eval */

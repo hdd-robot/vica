@@ -52,7 +52,7 @@
 	<!-- RPLIDAR  -->
 	<gazebo reference="rplidar">
 		<sensor type="gpu_ray" name="rplidar_laser">
-			<visualize>false</visualize>
+			<visualize>true</visualize>
 			<pose>0 0 0 0 0 0</pose>
 			<update_rate>40</update_rate>
 			<ray>
@@ -60,8 +60,8 @@
 					<horizontal>
 						<samples>720</samples>
 						<resolution>1</resolution>
-						<min_angle>-3.14159265359</min_angle>
-						<max_angle>3.14159265359</max_angle>
+						<min_angle>-3.13</min_angle>
+						<max_angle>3.13</max_angle>
 					</horizontal>
 				</scan>
 				<range>

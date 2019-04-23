@@ -14,7 +14,7 @@
 
 
 		<visual>
-			<origin rpy="0 0 0" xyz="0 0 0.05" />
+			<origin rpy="0 0 0" xyz="0 0 0.01" />
 			<geometry>
 				<mesh scale=".0010 .0010 .0010"
 					filename="package://vica_robot/meshes/base.stl" />
@@ -27,7 +27,7 @@
 
 
 		<collision>
-			<origin rpy="0 0 0" xyz="0 0 0.05" />
+			<origin rpy="0 0 0" xyz="0 0 0.01" />
 			<geometry>
 				<mesh scale=".0010 .0010 .0010"
 					filename="package://vica_robot/meshes/base.stl" />
