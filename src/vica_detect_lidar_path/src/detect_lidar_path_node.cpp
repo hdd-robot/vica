@@ -3,8 +3,8 @@
 #include <vector>
 #include <list>
 #include <std_msgs/String.h>
-#include <work_graph_visible/path_angles.h>
-#include <work_graph_visible/list_path.h>
+#include <vica_msgs/path_angles.h>
+#include <vica_msgs/path_angles_list.h>
 
 #define inf 100
 
@@ -32,10 +32,10 @@ void laser_cb(const sensor_msgs::LaserScanConstPtr& input) {
 }
 
 int main(int argc, char **argv) {
-	ros::init(argc, argv, "laser_detect_object");
+	ros::init(argc, argv, "detect_lidar_path_node");
 	ros::NodeHandle n;
 	ros::Subscriber sub1 = n.subscribe("/vica_robot/sensor/laser/scan", 1, laser_cb);
-	ros::Publisher  pub1 = n.advertise<work_graph_visible::list_path>("/vica_robot/sensor/laser/objects", 1);
+	ros::Publisher  pub1 = n.advertise<vica_msgs::path_angles_list>("/vica_robot/sensor/laser/list_path", 1);
 
 	ros::Rate loop_rate(5);
 	std::list<Angle*> lst_angles_objects;
@@ -170,13 +170,13 @@ int main(int argc, char **argv) {
 //		std::cout << " -- END Data -- " << std::endl << std::endl << std::endl;
 
 
-		work_graph_visible::list_path msg_lst_ang;
-		work_graph_visible::path_angles* path_agl;
+		vica_msgs::path_angles_list msg_lst_ang;
+		vica_msgs::path_angles* path_agl;
 
 
 
 		for(auto lst : lst_angles_paths){
-			path_agl = new work_graph_visible::path_angles();
+			path_agl = new vica_msgs::path_angles();
 
 			path_agl->min_teta = lst->teta_min;
 			path_agl->min_dist = lst->teta_dist_min;
