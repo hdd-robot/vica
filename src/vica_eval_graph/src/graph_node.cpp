@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
 
 	pgraph.set_goal(0,10);
 
-	pgraph.add_vertex(0,0);
+	pgraph.set_init_node();
 
 	while (ros::ok()) {
 		lst_path = lst_path_tmp;
@@ -32,13 +32,13 @@ int main(int argc, char **argv) {
 		ROS_INFO(" --- loop ---- ");
 
 		for( auto pth : lst_path.lst_path ){
-			pgraph.add_vertex(pth.min_teta,pth.max_teta);
+			pgraph.add_node(pth.min_teta,pth.max_teta,pth.min_dist,pth.max_dist);
 			ROS_INFO(" --> count");
 		}
 
 		pgraph.draw_graph();
 
-		pgraph.clear_grap();
+		//pgraph.clear_grap();
 
 
 		ros::spinOnce();
