@@ -54,16 +54,20 @@ vertex_t path_graph::add_node(double teta1, double teta2, double dist1, double d
 	}
 
 	vertex_t vtx;
-	double x,y;
-	double e_dist = 4;
-	bool visited = false;
+
 	if (insert == true){
-		double e_dist = 4 ;
+
+		bool visited = false;
+		double goal_dist_1 = abs(new_point_1 - this->goal) ;
+		double goal_dist_2 = abs(new_point_2 - this->goal) ;
 		double dst_1  = abs(std::polar(dist1,teta1));
 		double dst_2  = abs(std::polar(dist2,teta2));
 
-		vtx = boost::add_vertex(VertexProperties(count,teta1, teta2,dst_1,dst_2,e_dist,visited), g);
-		std::pair<Graph::edge_descriptor, bool> edg = boost::add_edge(this->head_vertex,vtx,EdgeProperties(1,1),this->g);
+		vtx = boost::add_vertex(VertexProperties(count,teta1, teta2,dst_1,dst_2,goal_dist_1,goal_dist_2,visited), g);
+		if(count != 0){
+			std::pair<Graph::edge_descriptor, bool> edg = boost::add_edge(this->head_vertex,vtx,EdgeProperties(1,1),this->g);
+		}
+
 		count ++;
 	}
 
@@ -75,7 +79,6 @@ void path_graph::set_init_node() {
 
 	this->init_vertex = add_node(0,0,0,0);
 	this->head_vertex = init_vertex;
-	count ++;
 }
 
 double path_graph::get_euclidean_distance_goal(std::complex<double> pos) {
@@ -98,14 +101,21 @@ void path_graph::draw_graph() {
 	boost::write_graphviz(dmp,g,make_label_writer(get(&VertexProperties::id,g)));
 }
 
-void path_graph::get_netx_pos() {
-	std::pair<adja_iter, adja_iter> vp;
+std::complex<double> path_graph::get_netx_pos() {
 
-	for (vp = boost::adjacent_vertices(this-> head_vertex,this->g); vp.first != vp.second; ++vp.first) {
+
+	std::complex<double> best_next_pox = get_pos_robot();
+	VertexProperties best_vertex_tmp;
+
+
+	for (std::pair<adja_iter, adja_iter> vp = boost::adjacent_vertices(this-> head_vertex,this->g); vp.first != vp.second; ++vp.first) {
 		VertexProperties tmp_vtx = g[*(vp.first)];
-
+		ROS_INFO(" -- id :  %d ", tmp_vtx.id);
 	}
 
+
+
+	return best_next_pox;
 }
 
 } /* namespace vica_eval */

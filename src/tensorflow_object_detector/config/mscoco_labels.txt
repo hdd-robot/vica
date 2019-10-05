@@ -34,7 +34,7 @@ suitcase
 frisbee
 skis
 snowboard
-sports ball
+ball
 kite
 baseball bat
 baseball glove

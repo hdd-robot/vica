@@ -19,7 +19,7 @@ TensorFlowObjectDetectorNodeCore::TensorFlowObjectDetectorNodeCore(const ros::No
     std::string graph_path, labels_path;
     nh_.param<std::string>("graph_path", graph_path, "");
     nh_.param<std::string>("labels_path", labels_path, "");
-    nh_.param<double>("score_threshold", score_threshold_, 0.8);
+    nh_.param<double>("score_threshold", score_threshold_, 0.5);
     nh_.param<bool>("always_output_image", always_output_image_, false);
 
     //initialize tensorflow

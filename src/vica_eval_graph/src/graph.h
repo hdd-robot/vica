@@ -1,4 +1,4 @@
-
+#include <ros/ros.h>
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graphviz.hpp>
 #include <boost/graph/breadth_first_search.hpp>
@@ -27,11 +27,14 @@ struct VertexProperties
 	double teta_2;
 	double dist_teta_1;
 	double dist_teta_2;
-	bool visited = false;
-	double direct_goal_distance = 0;
+	double direct_goal_distance_1 = 0;
+	double direct_goal_distance_2 = 0;
+
+	bool   visited = false;
+
 	VertexProperties() : id(0), teta_1(0), teta_2(0),dist_teta_1(0), dist_teta_2(0) {}
-	VertexProperties(unsigned i,double t1, double t2,double dt1,double dt2, double dir_dist, bool vstd) :
-			id(i), teta_1(t1), teta_2(t2), dist_teta_1(t2), dist_teta_2(dt2), direct_goal_distance(dir_dist), visited(vstd) {}
+	VertexProperties(unsigned i,double t1, double t2,double dt1,double dt2, double dir_dist1, double dir_dist2 , bool vstd) :
+			id(i), teta_1(t1), teta_2(t2), dist_teta_1(t2), dist_teta_2(dt2), direct_goal_distance_1(dir_dist1), direct_goal_distance_2(dir_dist2), visited(vstd) {}
 };
 
 struct EdgeProperties
@@ -75,7 +78,7 @@ public:
 
 	void draw_graph();
 
-	void get_netx_pos();
+	std::complex<double>  get_netx_pos();
 
 	Graph g;
 	int count = 0;

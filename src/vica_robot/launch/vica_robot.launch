@@ -11,6 +11,19 @@
   <param name="robot_description" command="$(find xacro)/xacro.py '$(find vica_robot)/urdf/model.xacro'"/>
   
   <param name="use_gui" value="$(arg gui)"/>
+  
+  
+  	<node name="robot_spawn" pkg="gazebo_ros" type="spawn_model"
+		output="screen" args="-urdf -param robot_description -model robot -z 0.175" />
+
+
+		 
+	<node pkg="tf" type="static_transform_publisher" name="kinect"
+		args="0.055 -0.02 0.137 1.58 3.14 1.58 /base_link /kinect_real_pos 10" />
+
+	<node pkg="tf" type="static_transform_publisher" name="rplidar"
+		args="0 0 0.4 0 0 0 /base_link /rplidar_real_pos 10" />
+  
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
@@ -35,3 +48,21 @@
  
 
 </launch>
+
+
+
+<!--  
+	<param name="robot_description"
+		command="$(find xacro)/xacro.py '$(find robot_model)/urdf/model.xacro'" />
+
+	<node name="robot_spawn" pkg="gazebo_ros" type="spawn_model"
+		output="screen" args="-urdf -param robot_description -model robot" />
+
+
+		 
+	<node pkg="tf" type="static_transform_publisher" name="kinect"
+		args="0.055 -0.02 0.137 1.58 3.14 1.58 /base_link /kinect_real_pos 10" />
+
+	<node pkg="tf" type="static_transform_publisher" name="rplidar"
+		args="0 0 0.4 0 0 0 /base_link /rplidar_real_pos 10" />
+ -->

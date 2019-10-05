@@ -52,6 +52,7 @@
 	<!-- RPLIDAR  -->
 	<gazebo reference="rplidar">
 		<sensor type="gpu_ray" name="rplidar_laser">
+			<!-- afficher dans gazebo -->
 			<visualize>true</visualize>
 			<pose>0 0 0 0 0 0</pose>
 			<update_rate>40</update_rate>
