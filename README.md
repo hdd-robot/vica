@@ -56,7 +56,9 @@ Dans vica on trouve 4 packages:
  2. vica_sim
  3. vica_eval
  4. vica_act
-
+ 5. vica_robot
+ 6. vica_robot_gazebo
+ 7. vica_launch
 Dans le workspace on trouver d'autres packages, généralement ils servent uniquement pour tester certaines fonctionnalités avant leur implémentation dans les packages.
 
 ## vica_detect
@@ -66,3 +68,12 @@ Dans le workspace on trouver d'autres packages, généralement ils servent uniqu
 ## vica_eval 
 
 ## vica_act
+
+
+# Execution 
+Pour lancer le tout il suffi :
+
+```
+roslaunch vica_launch vica.launch
+
+```

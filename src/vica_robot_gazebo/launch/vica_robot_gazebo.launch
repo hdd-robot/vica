@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+	<arg name="world" default="empty" />
+	<arg name="paused" default="false" />
+	<arg name="use_sim_time" default="true" />
+	<arg name="gui" default="true" />
+	<arg name="headless" default="false" />
+	<arg name="debug" default="false" />
+	
+	
+    
+    <arg name="worldfile" default="robot_office.world" />  
+
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+	    <arg name="world_name" value="$(find vica_robot_gazebo)/worlds/$(arg worldfile)" />  <!--  affciher une box au dmarrage de gazebo -->
+		<arg name="paused" value="$(arg paused)" />
+		<arg name="use_sim_time" value="$(arg use_sim_time)" />
+		<arg name="gui" value="$(arg gui)" />
+		<arg name="headless" value="$(arg headless)" />
+		<arg name="debug" value="$(arg debug)" />
+	</include>
+
+<!--  
+	<param name="robot_description"
+		command="$(find xacro)/xacro.py '$(find robot_model)/urdf/model.xacro'" />
+
+	<node name="robot_spawn" pkg="gazebo_ros" type="spawn_model"
+		output="screen" args="-urdf -param robot_description -model robot" />
+
+
+		 
+	<node pkg="tf" type="static_transform_publisher" name="kinect"
+		args="0.055 -0.02 0.137 1.58 3.14 1.58 /base_link /kinect_real_pos 10" />
+
+	<node pkg="tf" type="static_transform_publisher" name="rplidar"
+		args="0 0 0.4 0 0 0 /base_link /rplidar_real_pos 10" />
+ -->
+
+</launch>

@@ -1,0 +1,11 @@
+1,robot,circle,circle,30,130,0,green,20,20,20
+2,goal,circle,circle,320,130,0,red,20,20,20
+3,obstacle,rectangular,rectangular,40,20,0,blue,70,40,40
+4,obstacle,circle,cylinder,80,70,0,yellow,20,30,0
+5,obstacle,rectangular,rectangular,110,110,0,blue,20,20,20
+6,obstacle,circle,circle,230,140,0,magenta,50,50,0
+7,obstacle,rectangular,rectangular,130,40,0,blue,40,20,30
+8,obstacle,circle,cylinder,200,100,0,yellow,30,40,0
+9,obstacle,circle,rectangular,150,150,0,blue,40,50,60
+10,obstacle,circle,circle,150,80,0,magenta,30,30,0
+11,obstacle,rectangular,rectangular,260,60,0,blue,20,20,30

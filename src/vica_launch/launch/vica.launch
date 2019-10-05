@@ -1,0 +1,14 @@
+<launch>
+  	<arg name="vica_launch" />
+  	<arg name="gui" default="true" />
+  
+  	<include file="$(find vica_robot_gazebo)/launch/vica_robot_gazebo.launch"/>
+	<include file="$(find vica_robot)/launch/vica_robot.launch"/>
+	
+	<!-- VICA Détect -->
+	<include file="$(find vica_detect)/launch/vica_detect.launch"/>
+	
+	<!-- Control avec la manette XBOX -->
+	<include file="$(find vica_joy_control)/launch/joy_control.launch"/>
+
+</launch>

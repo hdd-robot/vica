@@ -1,0 +1,10 @@
+<launch>
+  <arg name="work_gen_img" />
+  <arg name="gui" default="true" />
+  
+  <include file="$(find vica_robot_gazebo)/launch/vica_robot_gazebo.launch"/>
+  <include file="$(find vica_robot)/launch/vica_robot.launch"/>
+   
+  <node name="get_screenshot" pkg="work_gen_img" type="get_screenshot" />
+
+</launch>

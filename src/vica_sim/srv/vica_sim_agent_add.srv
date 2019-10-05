@@ -1,0 +1,14 @@
+uint16 id
+string type
+string draw
+string shape
+uint16 pos_x
+uint16 pos_y
+uint16 pos_z
+string color
+uint16 size_x
+uint16 size_y
+uint16 size_z	
+string attr_list
+---
+bool res

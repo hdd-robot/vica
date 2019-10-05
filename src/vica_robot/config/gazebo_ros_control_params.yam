@@ -1,0 +1,20 @@
+gazebo_ros_control:
+  joint_left_velocity_controller:
+    joint: l_wheel_joint
+    type: velocity_controllers/JointVelocityController    
+    pid:      
+      p: 100.0
+      i: 100.0
+      d: 100.0
+      
+  joint_right_velocity_controller:
+    joint: r_wheel_joint
+    type: velocity_controllers/JointVelocityController
+    pid:
+      p: 100.0
+      i: 100.0
+      d: 100.0
+    
+  joint_read_state_controller:
+    type: joint_state_controller/JointStateController 
+    publish_rate: 100.0
