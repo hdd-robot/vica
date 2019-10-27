@@ -17,7 +17,7 @@ Le dossier de travail s'appel workspace_ros, il contient
 Pour récupérer le dépot git, sur le serveur halim.info :
 
 ```
-git clone ssh://git@halim.info:1485/home/git/workspace_vica.git
+
 
 ```
 
